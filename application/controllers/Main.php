@@ -9,7 +9,7 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('main');
 	}
-	public get_cv_address($name="applicant"){
+	public function get_cv_address($name="applicant"){
 
 		$this->load->library('upload');
 
