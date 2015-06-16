@@ -99,10 +99,14 @@ font-family: Bebas;
 src: url(../fonts/BebasNeue.otf);
 
 }
-#form-section{
+body{
   background-image: url("../img/bk.jpg");
-  padding: 20px 0;
   background-size: 100%;
+}
+#form-section{
+  
+  padding: 20px 0;
+  
 }
 div.form-group>div.col-sm-7,div.form-group>div.col-sm-2{
    margin-bottom: 20px;

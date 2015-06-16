@@ -10,17 +10,17 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
         <!-- Bootstrap 3 -->
-        <script src="js/jquery-1.11.2.min.js"></script>
-        <script src="js/jquery-ui.js"></script>
-        <script src="js/jquery-scrollto.js"></script>
-        <link href="css/jquery-ui.css" rel="stylesheet">
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/bootstrap-theme.css" rel="stylesheet">
-        <script src="js/bootstrap.js"></script>
+        <script src="../../js/jquery-1.11.2.min.js"></script>
+        <script src="../../js/jquery-ui.js"></script>
+        <script src="../../js/jquery-scrollto.js"></script>
+        <link href="../../css/jquery-ui.css" rel="stylesheet">
+        <link href="../../css/bootstrap.css" rel="stylesheet">
+        <link href="../../css/bootstrap-theme.css" rel="stylesheet">
+        <script src="../../js/bootstrap.js"></script>
         <!-- end of Bootstrap 3 -->
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/main.css">
+        <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
         <script type="text/javascript">
 
 		var monthtext=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
@@ -58,7 +58,7 @@
 
 
      <div class="container-fluid">
-		<div class="row"><img src="img/banner.jpg" alt="Banner Image" class="img-responsive unselectable" draggable="false"></div>
+		<div class="row"><img src="../../img/banner.jpg" alt="Banner Image" class="img-responsive unselectable" draggable="false"></div>
      </div><!-- end of container-fluid -->
 
       <div class="container-fluid" id="form-section">
@@ -126,9 +126,9 @@
      </div><!-- end of container-fluid -->
     
      <!-- end of inner -->
-        <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script>window.jQuery || document.write('<script src="../../js/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="../../js/plugins.js"></script>
+        <script src="../../js/main.js"></script>
         <script type="text/javascript">
 		window.onload=function(){
 		populatedropdown("daydropdown", "monthdropdown", "yeardropdown")
