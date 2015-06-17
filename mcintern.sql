@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2015 at 04:58 PM
+-- Generation Time: Jun 17, 2015 at 05:57 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -51,14 +51,7 @@ CREATE TABLE IF NOT EXISTS `people` (
   `comment` text COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `people`
---
-
-INSERT INTO `people` (`id`, `name`, `email`, `age`, `currentStudy`, `university`, `job`, `cv`, `comment`) VALUES
-(1, 'sad', 'a', '17', 'master', 'sdf', 'back end', 'C:/wamp/www/hire-form/cvs/s.pdf', 'sdf');
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=11 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
