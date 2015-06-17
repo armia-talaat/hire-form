@@ -9,18 +9,8 @@ class Main extends CI_Controller {
 	{
 		$this->load->view('main');
 	}
-	public function get_cv_address($name="applicant"){
-
-		
-
-		print_r($_FILES);
-		
-		$config['upload_path']  = 'http://localhost/cvs/';
-        $config['allowed_types']= 'pdf';
-        
-        $config['max_size']     = 0;
-        $this->load->library('upload', $config);
-       var_dump(is_dir('./cvs'));
+	public function get_cv_address($name="applicant"){      
+       
       
         if ( ! $this->upload->do_upload('cv')){
             echo $this->upload->display_errors();
@@ -35,22 +25,10 @@ class Main extends CI_Controller {
         }
         
 	}
+
 	// so we entre an applicant to the database
 	public function add_app(){
-		$this->load->library('upload');
-		$cv = $this->get_cv_address($this->input->post('name',true));
-		echo $cv;
 
-		if (!$cv) {
-
-			$error = array('error' => $this->upload->display_errors());
-			exit();
-			$this->load->view('main',$error);
-
-
-		}
-
-		
 		
 		// get the data from the input
 		// get the file a pdf
@@ -62,14 +40,44 @@ class Main extends CI_Controller {
 			'university'=>$this->input->post('university',true),
 			'job'=>$this->input->post('job',true),
 			'comment'=>$this->input->post('comment',true), 
-			'cv'=>$cv
 			);
-		print_r($user_data);
+		
 		// insert the data
 		$this->db->trans_start();
 		$this->db->insert('people', $user_data);
+		$id= $this->db->insert_id();
 		$this->db->trans_complete();
+		
 
+		$this->load->library('upload');
+		
+		
+
+		$cv = array('cv' => $this->get_cv_address($this->input->post('name',true)));
+		
+		 $error = $this->db->error();
+		if ($error['code']!== 0) {
+
+			
+		
+			$this->load->view('main',array('error'=>"Something went wrong"));
+
+			exit();
+		}
+
+
+		if (!$cv['cv']) {
+
+			
+		
+			$this->load->view('main',array('error'=>"Something went wrong"));
+
+			exit();
+		}
+
+		// update the cv column table and end
+		
+		$this->db->update('people', $cv, array('id' => $id));
 		// load the happy page
 		$this->load->view('happyEnd');
 	}
