@@ -988,7 +988,7 @@ class CI_Upload {
 		}
 
 		if ( ! is_dir($this->upload_path))
-		{	echo $this->upload_path;
+		{	
 			$this->set_error('upload_no_filepath');
 			return FALSE;
 		}
