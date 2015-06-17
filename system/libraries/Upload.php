@@ -372,10 +372,12 @@ class CI_Upload {
 	 * @return	bool
 	 */
 	public function do_upload($field = 'userfile')
-	{
+	{	
+
 		// Is $_FILES[$field] set? If not, no reason to continue.
 		if (isset($_FILES[$field]))
 		{
+
 			$_file = $_FILES[$field];
 		}
 		// Does the field name contain array notation?
@@ -396,7 +398,8 @@ class CI_Upload {
 		}
 
 		if ( ! isset($_file))
-		{
+		{	
+
 			$this->set_error('upload_no_file_selected');
 			return FALSE;
 		}
@@ -405,6 +408,7 @@ class CI_Upload {
 		if ( ! $this->validate_upload_path())
 		{
 			// errors will already be set by validate_upload_path() so just return FALSE
+
 			return FALSE;
 		}
 
@@ -412,7 +416,7 @@ class CI_Upload {
 		if ( ! is_uploaded_file($_file['tmp_name']))
 		{
 			$error = isset($_file['error']) ? $_file['error'] : 4;
-
+			echo "this is the error";
 			switch ($error)
 			{
 				case UPLOAD_ERR_INI_SIZE:
@@ -984,7 +988,7 @@ class CI_Upload {
 		}
 
 		if ( ! is_dir($this->upload_path))
-		{
+		{	echo $this->upload_path;
 			$this->set_error('upload_no_filepath');
 			return FALSE;
 		}

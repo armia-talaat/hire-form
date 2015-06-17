@@ -11,19 +11,21 @@ class Main extends CI_Controller {
 	}
 	public function get_cv_address($name="applicant"){
 
-		$this->load->library('upload');
+		
 
-
-
-		$config['upload_path']  = './cvs/';
+		print_r($_FILES);
+		
+		$config['upload_path']  = 'http://localhost/cvs/';
         $config['allowed_types']= 'pdf';
-        $config['file_name']    = $name + 'cv';
-        $config['max_size']     = 2048;
-               
-
+        
+        $config['max_size']     = 0;
         $this->load->library('upload', $config);
-
-        if ( ! $this->upload->do_upload()){
+       var_dump(is_dir('./cvs'));
+      
+        if ( ! $this->upload->do_upload('cv')){
+            echo $this->upload->display_errors();
+            
+            exit();
             return false;
                        
         }
@@ -35,13 +37,17 @@ class Main extends CI_Controller {
 	}
 	// so we entre an applicant to the database
 	public function add_app(){
-		$cv = $this->get_cv_address();
+		$this->load->library('upload');
+		$cv = $this->get_cv_address($this->input->post('name',true));
+		echo $cv;
 
 		if (!$cv) {
 
 			$error = array('error' => $this->upload->display_errors());
-
+			exit();
 			$this->load->view('main',$error);
+
+
 		}
 
 		
@@ -50,7 +56,7 @@ class Main extends CI_Controller {
 		// get the file a pdf
 		$user_data = array(
 			'name' =>$this->input->post('name',true),
-			'age'=>$this->input->post('age',true),
+			'age'=> $this->input->post('day',true).":".$this->input->post('month',true).":".$this->input->post('year',true),
 			'email'=>$this->input->post('email',true),
 			'currentStudy' =>$this->input->post('study',true),
 			'university'=>$this->input->post('university',true),
@@ -58,6 +64,7 @@ class Main extends CI_Controller {
 			'comment'=>$this->input->post('comment',true), 
 			'cv'=>$cv
 			);
+		print_r($user_data);
 		// insert the data
 		$this->db->trans_start();
 		$this->db->insert('people', $user_data);
