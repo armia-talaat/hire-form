@@ -112,6 +112,13 @@ div.form-group>div.col-sm-7,div.form-group>div.col-sm-2{
    margin-bottom: 20px;
 
 }
+h1{
+text-align: center;
+ color: white;
+ margin-top: 100px;
+ line-height: 1.5em;
+ font-size: 1.3em;
+}
 select option{ text-align: center;}
 div.form-group>label{
  text-align: right;
